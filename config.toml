@@ -17,7 +17,7 @@ canonifyurls = true  ######################## 追加(相対URLを絶対URLに変
 
 
 [author]
-  name = "John Doe"
+  name = "mitoro18"
 
 [blackfriday]
   # hrefTargetBlank = true
