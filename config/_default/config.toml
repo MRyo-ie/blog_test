@@ -1,0 +1,25 @@
+baseURL = "https://MRyo-ie.github.io/blog_test/" ####### 追加: {user_name}.github.io/{repository_name}/ を指定する
+languageCode = "ja"
+title = "技術ブログ（仮） | 趣味の研究開発メモ"  # Homeのタイトル
+author = "mitoro18"
+theme = "hugo-clarity"
+
+copyright = "Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved."
+# canonifyurls = true
+paginate = 10
+
+publishDir = "docs"  ######################### 追加
+
+disqusShortname = ""
+
+DefaultContentLanguage = "jp"
+# [languages]
+# config/_default/languages.toml
+
+# [menus]
+# config/_default/menus/menu.xx.toml
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"

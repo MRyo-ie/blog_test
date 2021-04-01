@@ -1,20 +1,36 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>untagged on 技術ブログ | 趣味の研究・開発のメモ</title>
+    <title>untagged on 技術ブログ（仮） | 趣味の研究開発メモ</title>
     <link>https://MRyo-ie.github.io/blog_test/tags/untagged/</link>
-    <description>Recent content in untagged on 技術ブログ | 趣味の研究・開発のメモ</description>
+    <description>Recent content in untagged on 技術ブログ（仮） | 趣味の研究開発メモ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+    <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
     <lastBuildDate>Sat, 27 Mar 2021 14:52:14 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/tags/untagged/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>First_post</title>
-      <link>https://MRyo-ie.github.io/blog_test/posts/first_post/</link>
+      <link>https://MRyo-ie.github.io/blog_test/post/first_post/</link>
       <pubDate>Sat, 27 Mar 2021 14:52:14 +0900</pubDate>
       
-      <guid>https://MRyo-ie.github.io/blog_test/posts/first_post/</guid>
-      <description>試し！！  リスト１ リスト２  詳細１ 詳細２    節2 節3 </description>
+      <guid>https://MRyo-ie.github.io/blog_test/post/first_post/</guid>
+      <description>
+        
+          &lt;h1 id=&#34;試し&#34;&gt;試し！！&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; リスト１&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; リスト２
+&lt;ul&gt;
+&lt;li&gt;詳細１&lt;/li&gt;
+&lt;li&gt;詳細２&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;節2&#34;&gt;節2&lt;/h2&gt;
+&lt;h3 id=&#34;節3&#34;&gt;節3&lt;/h3&gt;
+
+        
+      </description>
     </item>
     
   </channel>

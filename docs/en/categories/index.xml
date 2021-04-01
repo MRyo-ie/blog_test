@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 技術ブログ（仮） | 趣味の研究開発メモ</title>
+    <link>https://MRyo-ie.github.io/blog_test/en/categories/</link>
+    <description>Recent content in Categories on 技術ブログ（仮） | 趣味の研究開発メモ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright><atom:link href="https://MRyo-ie.github.io/blog_test/en/categories/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

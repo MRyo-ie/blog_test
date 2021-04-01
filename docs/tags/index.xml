@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on 技術ブログ | 趣味の研究・開発のメモ</title>
+    <title>Tags on 技術ブログ（仮） | 趣味の研究開発メモ</title>
     <link>https://MRyo-ie.github.io/blog_test/tags/</link>
-    <description>Recent content in Tags on 技術ブログ | 趣味の研究・開発のメモ</description>
+    <description>Recent content in Tags on 技術ブログ（仮） | 趣味の研究開発メモ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 27 Mar 2021 14:52:14 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/tags/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>untagged</title>
-      <link>https://MRyo-ie.github.io/blog_test/tags/untagged/</link>
-      <pubDate>Sat, 27 Mar 2021 14:52:14 +0900</pubDate>
-      
-      <guid>https://MRyo-ie.github.io/blog_test/tags/untagged/</guid>
-      <description></description>
-    </item>
-    
+    <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Wed, 31 Mar 2021 01:01:18 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

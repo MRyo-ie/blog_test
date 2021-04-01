@@ -1,20 +1,408 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>技術ブログ | 趣味の研究・開発のメモ</title>
+    <title>技術ブログ（仮） | 趣味の研究開発メモ</title>
     <link>https://MRyo-ie.github.io/blog_test/</link>
-    <description>Recent content on 技術ブログ | 趣味の研究・開発のメモ</description>
+    <description>Recent content on 技術ブログ（仮） | 趣味の研究開発メモ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Sat, 27 Mar 2021 14:52:14 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Wed, 31 Mar 2021 01:01:18 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Survey_hugo_themes_blog</title>
+      <link>https://MRyo-ie.github.io/blog_test/post/survey_hugo_themes_blog/</link>
+      <pubDate>Wed, 31 Mar 2021 01:01:18 +0900</pubDate>
+      
+      <guid>https://MRyo-ie.github.io/blog_test/post/survey_hugo_themes_blog/</guid>
+      <description>
+        
+          &lt;h1 id=&#34;概要&#34;&gt;概要&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;自分のblogなので、好みのデザインにしたい！　→　「自分好み」を徹底的に分析することにした。&lt;/li&gt;
+&lt;li&gt;「自分好み」を分析するために、「hugo blog のデザイン」の要素を書き出してみることにした。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;分析&#34;&gt;分析&lt;/h1&gt;
+&lt;h2 id=&#34;hugo-themes---blog-の要素分解メモ&#34;&gt;hugo themes - blog の要素分解（メモ）&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;表にまとめてみた。
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.google.com/spreadsheets/d/1CL_OapprPMT0qE8wEEQCf3Jd1APyd-Ja8taLBB2GbTU/edit#gid=0&#34;&gt;https://docs.google.com/spreadsheets/d/1CL_OapprPMT0qE8wEEQCf3Jd1APyd-Ja8taLBB2GbTU/edit#gid=0&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;要素一覧&#34;&gt;要素一覧&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;色&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;主色&lt;/li&gt;
+&lt;li&gt;副色&lt;/li&gt;
+&lt;li&gt;総合（バランス）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UI&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;リスト&lt;/li&gt;
+&lt;li&gt;コードブロック&lt;/li&gt;
+&lt;li&gt;URLリンク&lt;/li&gt;
+&lt;li&gt;表&lt;/li&gt;
+&lt;li&gt;引用ブロック&lt;/li&gt;
+&lt;li&gt;（Twitter）引用ブロック&lt;/li&gt;
+&lt;li&gt;H1, H2 の区切り線&lt;/li&gt;
+&lt;li&gt;Light / Dark モード&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;UX&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;右カラム&lt;/li&gt;
+&lt;li&gt;URLリンク&lt;/li&gt;
+&lt;li&gt;脚注&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;必須機能&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;画像 埋め込み
+&lt;ul&gt;
+&lt;li&gt;できないテーマが意外と多い。&lt;/li&gt;
+&lt;li&gt;テーマによって、記法や保存場所が違うので、調べるのも一苦労だった...。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;便利機能&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;動画 埋め込み&lt;/li&gt;
+&lt;li&gt;チェックリスト&lt;/li&gt;
+&lt;li&gt;数式（TeX）&lt;/li&gt;
+&lt;li&gt;検索バー&lt;/li&gt;
+&lt;li&gt;ポートフォリオページ&lt;/li&gt;
+&lt;li&gt;Doc ページ&lt;/li&gt;
+&lt;li&gt;上に戻る ボタン（^）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;最終的に&#34;&gt;最終的に...&lt;/h1&gt;
+&lt;p&gt;30テーマほど見てみて、以下の３つまで絞れた。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/hugo-clarity/&#34;&gt;Clarity&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/hugo-theme-fuji/&#34;&gt;Fuji&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/hugo-eureka/&#34;&gt;Eureka&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;けど、正直どれも 一長一短...。
+なので、それぞれの良いところを抽出、合体して、理想を目指していきたい。&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Slackbot に 機械学習・Deep Learning モデルを接続してみた。 【実装編】</title>
+      <link>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E5%AE%9F%E8%A3%85memo/</link>
+      <pubDate>Sat, 27 Mar 2021 17:01:45 +0900</pubDate>
+      
+      <guid>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E5%AE%9F%E8%A3%85memo/</guid>
+      <description>
+        
+          &lt;h1 id=&#34;概要&#34;&gt;概要&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;../%E7%B4%B9%E4%BB%8B/&#34;&gt;前回&lt;/a&gt; 紹介した『Slackbot - ML/DL model tester』の、実装部分の解説記事です。&lt;/p&gt;
+&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;img src=&#34;fashion_mnist.png&#34; alt=&#34;fashion mnist で QA&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;X： （服などの）画像&lt;/li&gt;
+&lt;li&gt;Q： &amp;quot;fashion_mnist&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を、Slack で bot に送ると、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A： &amp;quot;服の種類&amp;quot;（class,label）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を返信してくれる。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;作ったもの&#34;&gt;作ったもの&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/MRyo-ie/slackbot_ML_model_tester&#34;&gt;GitHub&lt;/a&gt; に公開しています。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;実装&#34;&gt;実装&lt;/h1&gt;
+&lt;h2 id=&#34;やったこと&#34;&gt;やったこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;現在の開発状況： 1. のプロトタイプを作った。
+&lt;ul&gt;
+&lt;li&gt;画像分類モデル（fashion mnist）を bot に接続した。&lt;/li&gt;
+&lt;li&gt;対話モデルを bot に接続した。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;システムイメージ
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;system_img-simple.png&#34; alt=&#34;プロトタイプ構成&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;システム-イメージ&#34;&gt;システム イメージ&lt;/h2&gt;
+&lt;h1 id=&#34;おまけログ&#34;&gt;（おまけ）ログ&lt;/h1&gt;
+&lt;h3 id=&#34;未ubuntu-に-docker-インストール&#34;&gt;（未）Ubuntu に docker インストール&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.softek.co.jp/SID/support/sidfmvm/guide/install-docker-ubuntu1804.html&#34;&gt;https://www.softek.co.jp/SID/support/sidfmvm/guide/install-docker-ubuntu1804.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/tkyonezu/items/0f6da57eb2d823d2611d&#34;&gt;https://qiita.com/tkyonezu/items/0f6da57eb2d823d2611d&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Slackbot に 機械学習・Deep Learning モデルを接続してみた。 【紹介編】</title>
+      <link>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E7%B4%B9%E4%BB%8B/</link>
+      <pubDate>Sat, 27 Mar 2021 17:01:45 +0900</pubDate>
+      
+      <guid>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E7%B4%B9%E4%BB%8B/</guid>
+      <description>
+        
+          &lt;h1 id=&#34;概要&#34;&gt;概要&lt;/h1&gt;
+&lt;p&gt;大学でDeepLearningの応用系を研究しているので、公開されているSoTAモデルなどを動かそうとすることが多々あるのですが、&lt;strong&gt;予測結果を見る方法&lt;/strong&gt;はリポジトリによってバラバラで、そもそもない（自分で用意する必要がある）こともしばしば...。
+（「Jupyter notebook」や &lt;code&gt;predict.py&lt;/code&gt;、&lt;code&gt;evaluate.sh&lt;/code&gt; などが一般的？）&lt;/p&gt;
+&lt;p&gt;もちろん、Google Colab など Jupyter notebook を使えば早いのですが、どこか味気ないな... と思っていました。また、「半教師学習／Active Learning」や「対話、質問生成モデル」、「One-bit アノテーション」など、インタラクティブな学習にも興味があり、それらもいつかは試したいと思っていました。&lt;/p&gt;
+&lt;p&gt;私はめんどくさがりなので、↑ 全部まとめてできる環境作れないかな〜 と考えていたところ、「チャット（Slack など）で対話形式でやれば、全部できるのでは？」というアイディアを思いつきました（笑）&lt;/p&gt;
+&lt;p&gt;そこで早速、実装してみることにしました。（思い立ったが吉日！）&lt;/p&gt;
+&lt;p&gt;チャット、bot 環境には、APIが豊富な Slack を使うことにしました。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Slack は、
+&lt;ul&gt;
+&lt;li&gt;「文」「画像」どちらも使える。&lt;/li&gt;
+&lt;li&gt;bot の作成が簡単！&lt;br&gt;
+→ 機械学習・Deeplearning モデルを試す場所として有用なのでは？？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;と言っても分かりにくいと思うので、↓ に、完成イメージ（画像）を載せました。&lt;/p&gt;
+&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;イメージ（fashion mnist + 画像分類 の場合）
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;img src=&#34;fashion_mnist.png&#34; alt=&#34;fashion mnist で 画像分類&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;X： （服などの）画像&lt;/li&gt;
+&lt;li&gt;Q： &amp;quot;fashion mnist&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を チャット（Slack）で bot に送ると、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A： &amp;quot;服の種類&amp;quot;（class, label）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を返信する。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/MRyo-ie/slackbot_ML_model_tester&#34;&gt;GitHub&lt;/a&gt;  に公開しています。&lt;br&gt;
+※ まだ、Slack bot にモデルを接続しただけの段階です。&lt;br&gt;
+　近いうちに、モデルを docker で分離して、「素早く」「簡単に」接続できるような仕組みを作る予定です！&lt;/p&gt;
+&lt;h3 id=&#34;マイルストーン&#34;&gt;マイルストーン&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;↑のbotに、機械学習・Deep Learning モデルを&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;素早く&lt;/li&gt;
+&lt;li&gt;簡単に&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接続できるシステムを作る。[ver 0.60]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（未）Q に「評価関数」を追加する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新しいデータセットを作った時に使う。
+&lt;ul&gt;
+&lt;li&gt;指定した評価関数で精度を計算する。&lt;/li&gt;
+&lt;li&gt;自然言語処理（特に文章系）は、BLEU や LOUGE など、評価手法が複数あることも多いので、まとめてスクリプト化できると、実験が楽になりそう。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;evaluate.py のラッパー集的なもの。
+&lt;ul&gt;
+&lt;li&gt;自動生成までできたら嬉しい。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（未）対話を評価（アノテーション）する仕組みを組み込む。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（未）半教師学習、Active Learning の仕組みを組み込む。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（未）（接続モデルが増えてきたら）汎用AI として作り直す。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;「Q：この画像に写ってるのは？」→「A：コートです」&lt;/li&gt;
+&lt;li&gt;(X,Q) -&amp;gt; A  の形式に従う全てのタスクを、Qの指示通りにこなすことができるAI。
+&lt;ul&gt;
+&lt;li&gt;私にとっての、汎用AIのプロトタイプ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;対応したいタスク&#34;&gt;対応したいタスク&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;IO が「文」or「画像」で表現できる全てのタスク。
+&lt;ul&gt;
+&lt;li&gt;例）
+&lt;ul&gt;
+&lt;li&gt;自然言語処理： 対話、文章分類、固有表現抽出、文章生成、QA、...&lt;/li&gt;
+&lt;li&gt;画像処理： 画像分類、Detection, Segmentation, VQA, ...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;最終目標&#34;&gt;最終目標&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;機械学習・DeepLearning モデルと「対話」できる環境を作る。
+&lt;ul&gt;
+&lt;li&gt;「QA」「会話」モデルを試す場所として。&lt;/li&gt;
+&lt;li&gt;私が目標とする汎用AI（右腕AI）のプロトタイプの実験場として。&lt;/li&gt;
+&lt;li&gt;半教師学習 や Active Learning のアノテーション環境として。&lt;/li&gt;
+&lt;li&gt;マルチタスク や マルチモーダル の実験の高速化を目指して。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;qick-start&#34;&gt;Qick Start&lt;/h1&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Hugo で blog を作るまで</title>
+      <link>https://MRyo-ie.github.io/blog_test/post/hugo-hello_world/hugo_init/</link>
+      <pubDate>Sat, 27 Mar 2021 15:10:18 +0900</pubDate>
+      
+      <guid>https://MRyo-ie.github.io/blog_test/post/hugo-hello_world/hugo_init/</guid>
+      <description>
+        
+          &lt;h1 id=&#34;はじめに３行説明&#34;&gt;はじめに（３行説明）&lt;/h1&gt;
+&lt;p&gt;これまで溜めてきた技術メモを、一度どこかにアウトプットしたいと思っていた。
+調査してみた結果、hugo + GitHub Pages が一番手っ取り早くて良さそう、という結論に至った。
+せっかくなので、このサイトが作られるまでの過程を、最初の投稿のネタにしてみることにした。&lt;/p&gt;
+&lt;h1 id=&#34;使用技術&#34;&gt;使用技術&lt;/h1&gt;
+&lt;h2 id=&#34;hugo-とは&#34;&gt;Hugo とは&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#%E5%8F%82%E8%80%83&#34;&gt;参考&lt;/a&gt; や 公式ページ をみた方が早いです。&lt;/p&gt;
+&lt;h3 id=&#34;メリット&#34;&gt;メリット&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;全て無料。&lt;/li&gt;
+&lt;li&gt;めちゃくちゃ簡単だった。&lt;/li&gt;
+&lt;li&gt;記事作成について...
+&lt;ul&gt;
+&lt;li&gt;Markdown がそのまま記事になる。
+&lt;ul&gt;
+&lt;li&gt;ローカルで編集できるので、VS Code がそのまま使える。&lt;/li&gt;
+&lt;li&gt;スマホでの編集は... 考え中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;テンプレが豊富。&lt;/li&gt;
+&lt;li&gt;ブラウザ（ローカル）で、リアルタイムに更新が見れる（お手軽）&lt;/li&gt;
+&lt;li&gt;ビルドもかなり早い
+&lt;ul&gt;
+&lt;li&gt;比較はしてないけど...&lt;/li&gt;
+&lt;li&gt;ローカルでは 100ms 以内で終わってた。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;github-pages-とは&#34;&gt;GitHub Pages とは&lt;/h2&gt;
+&lt;p&gt;こちらも、&lt;a href=&#34;#%E5%8F%82%E8%80%83&#34;&gt;参考&lt;/a&gt; や &lt;a href=&#34;https://pages.github.com/&#34;&gt;公式ページ&lt;/a&gt; をみた方が早いです。&lt;/p&gt;
+&lt;h3 id=&#34;メリット-1&#34;&gt;メリット&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;全て無料。&lt;/li&gt;
+&lt;li&gt;めちゃくちゃ簡単だった。&lt;/li&gt;
+&lt;li&gt;拡張機能について...
+&lt;ul&gt;
+&lt;li&gt;（未）GitHub Actions と組み合わせて、デプロイ作業を自動化できるらしい。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;qick-start&#34;&gt;Qick Start&lt;/h1&gt;
+&lt;h2 id=&#34;1-hugo-をインストールする&#34;&gt;1. hugo をインストールする。&lt;/h2&gt;
+&lt;h2 id=&#34;2-テンプレを作る&#34;&gt;2. テンプレを作る。&lt;/h2&gt;
+&lt;h3 id=&#34;デザイン&#34;&gt;デザイン&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;hugo themes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;設定&#34;&gt;設定&lt;/h3&gt;
+&lt;h2 id=&#34;3-記事を書く&#34;&gt;3. 記事を書く。&lt;/h2&gt;
+&lt;h2 id=&#34;4-github-pages-に公開する&#34;&gt;4. GitHub Pages に公開する。&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;いくつか方法がある。
+&lt;ol&gt;
+&lt;li&gt;User or organization site（特殊。1 site/アカウント）
+&lt;ul&gt;
+&lt;li&gt;アカウントにつき１つだけ作れる、その人専用のサイト？&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;https://【ユーザー名】.github.io&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Project site（一般的。1 site/リポジトリ）
+&lt;ul&gt;
+&lt;li&gt;リポジトリごとに、ページを作る。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;https://【ユーザー名】.github.io/【リポジトリ名】&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;カスタム ドメイン（？）
+&lt;ul&gt;
+&lt;li&gt;（未）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;詳しくは、&lt;a href=&#34;https://pages.github.com/&#34;&gt;公式 Quick Start&lt;/a&gt; をみるのをオススメ。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;今回は、2. Project site（1 site/リポジトリ）で公開しました。&lt;/p&gt;
+&lt;h3 id=&#34;41-configtoml-の-baseurl-を変更&#34;&gt;4.1 config.toml の baseURL を変更。&lt;/h3&gt;
+&lt;h3 id=&#34;42-github-pages-にdoc-ディレクトリを登録する&#34;&gt;4.2 GitHub Pages に、doc/ ディレクトリを登録する。&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;GitHubリポジトリ &amp;gt; Settings &amp;gt; GitHub Pages&lt;/li&gt;
+&lt;li&gt;&lt;img src=&#34;20210327_155116.png&#34; alt=&#34;設定画面&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;43&#34;&gt;4.3&lt;/h3&gt;
+&lt;h2 id=&#34;参考&#34;&gt;参考&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://pages.github.com/&#34;&gt;GitHub Pages &amp;gt; Project site &amp;gt; Start from scratch&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/BIwashi/items/c011454bdb9a523bba4a&#34;&gt;HugoとGithub Pagesで自作ブログサイトを作ってみる #1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://gohugo.io/hosting-and-deployment/hosting-on-github/&#34;&gt;HUGO / Host on GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>First_post</title>
-      <link>https://MRyo-ie.github.io/blog_test/posts/first_post/</link>
+      <link>https://MRyo-ie.github.io/blog_test/post/first_post/</link>
       <pubDate>Sat, 27 Mar 2021 14:52:14 +0900</pubDate>
       
-      <guid>https://MRyo-ie.github.io/blog_test/posts/first_post/</guid>
-      <description>試し！！  リスト１ リスト２  詳細１ 詳細２    節2 節3 </description>
+      <guid>https://MRyo-ie.github.io/blog_test/post/first_post/</guid>
+      <description>
+        
+          &lt;h1 id=&#34;試し&#34;&gt;試し！！&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; リスト１&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; リスト２
+&lt;ul&gt;
+&lt;li&gt;詳細１&lt;/li&gt;
+&lt;li&gt;詳細２&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;節2&#34;&gt;節2&lt;/h2&gt;
+&lt;h3 id=&#34;節3&#34;&gt;節3&lt;/h3&gt;
+
+        
+      </description>
     </item>
     
   </channel>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Slackbot on 技術ブログ（仮） | 趣味の研究開発メモ</title>
+    <link>https://MRyo-ie.github.io/blog_test/tags/slackbot/</link>
+    <description>Recent content in Slackbot on 技術ブログ（仮） | 趣味の研究開発メモ</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 27 Mar 2021 17:01:45 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/tags/slackbot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Slackbot に 機械学習・Deep Learning モデルを接続してみた。 【実装編】</title>
+      <link>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E5%AE%9F%E8%A3%85memo/</link>
+      <pubDate>Sat, 27 Mar 2021 17:01:45 +0900</pubDate>
+      
+      <guid>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E5%AE%9F%E8%A3%85memo/</guid>
+      <description>
+        
+          &lt;h1 id=&#34;概要&#34;&gt;概要&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&#34;../%E7%B4%B9%E4%BB%8B/&#34;&gt;前回&lt;/a&gt; 紹介した『Slackbot - ML/DL model tester』の、実装部分の解説記事です。&lt;/p&gt;
+&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;img src=&#34;fashion_mnist.png&#34; alt=&#34;fashion mnist で QA&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;X： （服などの）画像&lt;/li&gt;
+&lt;li&gt;Q： &amp;quot;fashion_mnist&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を、Slack で bot に送ると、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A： &amp;quot;服の種類&amp;quot;（class,label）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を返信してくれる。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;作ったもの&#34;&gt;作ったもの&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/MRyo-ie/slackbot_ML_model_tester&#34;&gt;GitHub&lt;/a&gt; に公開しています。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;実装&#34;&gt;実装&lt;/h1&gt;
+&lt;h2 id=&#34;やったこと&#34;&gt;やったこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;現在の開発状況： 1. のプロトタイプを作った。
+&lt;ul&gt;
+&lt;li&gt;画像分類モデル（fashion mnist）を bot に接続した。&lt;/li&gt;
+&lt;li&gt;対話モデルを bot に接続した。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;システムイメージ
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;system_img-simple.png&#34; alt=&#34;プロトタイプ構成&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;システム-イメージ&#34;&gt;システム イメージ&lt;/h2&gt;
+&lt;h1 id=&#34;おまけログ&#34;&gt;（おまけ）ログ&lt;/h1&gt;
+&lt;h3 id=&#34;未ubuntu-に-docker-インストール&#34;&gt;（未）Ubuntu に docker インストール&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.softek.co.jp/SID/support/sidfmvm/guide/install-docker-ubuntu1804.html&#34;&gt;https://www.softek.co.jp/SID/support/sidfmvm/guide/install-docker-ubuntu1804.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://qiita.com/tkyonezu/items/0f6da57eb2d823d2611d&#34;&gt;https://qiita.com/tkyonezu/items/0f6da57eb2d823d2611d&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>Slackbot に 機械学習・Deep Learning モデルを接続してみた。 【紹介編】</title>
+      <link>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E7%B4%B9%E4%BB%8B/</link>
+      <pubDate>Sat, 27 Mar 2021 17:01:45 +0900</pubDate>
+      
+      <guid>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E7%B4%B9%E4%BB%8B/</guid>
+      <description>
+        
+          &lt;h1 id=&#34;概要&#34;&gt;概要&lt;/h1&gt;
+&lt;p&gt;大学でDeepLearningの応用系を研究しているので、公開されているSoTAモデルなどを動かそうとすることが多々あるのですが、&lt;strong&gt;予測結果を見る方法&lt;/strong&gt;はリポジトリによってバラバラで、そもそもない（自分で用意する必要がある）こともしばしば...。
+（「Jupyter notebook」や &lt;code&gt;predict.py&lt;/code&gt;、&lt;code&gt;evaluate.sh&lt;/code&gt; などが一般的？）&lt;/p&gt;
+&lt;p&gt;もちろん、Google Colab など Jupyter notebook を使えば早いのですが、どこか味気ないな... と思っていました。また、「半教師学習／Active Learning」や「対話、質問生成モデル」、「One-bit アノテーション」など、インタラクティブな学習にも興味があり、それらもいつかは試したいと思っていました。&lt;/p&gt;
+&lt;p&gt;私はめんどくさがりなので、↑ 全部まとめてできる環境作れないかな〜 と考えていたところ、「チャット（Slack など）で対話形式でやれば、全部できるのでは？」というアイディアを思いつきました（笑）&lt;/p&gt;
+&lt;p&gt;そこで早速、実装してみることにしました。（思い立ったが吉日！）&lt;/p&gt;
+&lt;p&gt;チャット、bot 環境には、APIが豊富な Slack を使うことにしました。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Slack は、
+&lt;ul&gt;
+&lt;li&gt;「文」「画像」どちらも使える。&lt;/li&gt;
+&lt;li&gt;bot の作成が簡単！&lt;br&gt;
+→ 機械学習・Deeplearning モデルを試す場所として有用なのでは？？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;と言っても分かりにくいと思うので、↓ に、完成イメージ（画像）を載せました。&lt;/p&gt;
+&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;イメージ（fashion mnist + 画像分類 の場合）
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;img src=&#34;fashion_mnist.png&#34; alt=&#34;fashion mnist で 画像分類&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;X： （服などの）画像&lt;/li&gt;
+&lt;li&gt;Q： &amp;quot;fashion mnist&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を チャット（Slack）で bot に送ると、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A： &amp;quot;服の種類&amp;quot;（class, label）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を返信する。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/MRyo-ie/slackbot_ML_model_tester&#34;&gt;GitHub&lt;/a&gt;  に公開しています。&lt;br&gt;
+※ まだ、Slack bot にモデルを接続しただけの段階です。&lt;br&gt;
+　近いうちに、モデルを docker で分離して、「素早く」「簡単に」接続できるような仕組みを作る予定です！&lt;/p&gt;
+&lt;h3 id=&#34;マイルストーン&#34;&gt;マイルストーン&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;↑のbotに、機械学習・Deep Learning モデルを&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;素早く&lt;/li&gt;
+&lt;li&gt;簡単に&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;接続できるシステムを作る。[ver 0.60]&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（未）Q に「評価関数」を追加する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;新しいデータセットを作った時に使う。
+&lt;ul&gt;
+&lt;li&gt;指定した評価関数で精度を計算する。&lt;/li&gt;
+&lt;li&gt;自然言語処理（特に文章系）は、BLEU や LOUGE など、評価手法が複数あることも多いので、まとめてスクリプト化できると、実験が楽になりそう。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;evaluate.py のラッパー集的なもの。
+&lt;ul&gt;
+&lt;li&gt;自動生成までできたら嬉しい。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（未）対話を評価（アノテーション）する仕組みを組み込む。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（未）半教師学習、Active Learning の仕組みを組み込む。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;（未）（接続モデルが増えてきたら）汎用AI として作り直す。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;「Q：この画像に写ってるのは？」→「A：コートです」&lt;/li&gt;
+&lt;li&gt;(X,Q) -&amp;gt; A  の形式に従う全てのタスクを、Qの指示通りにこなすことができるAI。
+&lt;ul&gt;
+&lt;li&gt;私にとっての、汎用AIのプロトタイプ&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;対応したいタスク&#34;&gt;対応したいタスク&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;IO が「文」or「画像」で表現できる全てのタスク。
+&lt;ul&gt;
+&lt;li&gt;例）
+&lt;ul&gt;
+&lt;li&gt;自然言語処理： 対話、文章分類、固有表現抽出、文章生成、QA、...&lt;/li&gt;
+&lt;li&gt;画像処理： 画像分類、Detection, Segmentation, VQA, ...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;最終目標&#34;&gt;最終目標&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;機械学習・DeepLearning モデルと「対話」できる環境を作る。
+&lt;ul&gt;
+&lt;li&gt;「QA」「会話」モデルを試す場所として。&lt;/li&gt;
+&lt;li&gt;私が目標とする汎用AI（右腕AI）のプロトタイプの実験場として。&lt;/li&gt;
+&lt;li&gt;半教師学習 や Active Learning のアノテーション環境として。&lt;/li&gt;
+&lt;li&gt;マルチタスク や マルチモーダル の実験の高速化を目指して。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;qick-start&#34;&gt;Qick Start&lt;/h1&gt;
+
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>
