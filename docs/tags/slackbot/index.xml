@@ -49,10 +49,23 @@
 &lt;li&gt;システムイメージ
 &lt;ul&gt;
 &lt;li&gt;&lt;img src=&#34;system_img-simple.png&#34; alt=&#34;プロトタイプ構成&#34;&gt;&lt;/li&gt;
+&lt;li&gt;左側が Slack&lt;/li&gt;
+&lt;li&gt;右側が bot サーバー&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;システム-イメージ&#34;&gt;システム イメージ&lt;/h2&gt;
+&lt;h2 id=&#34;やりたいこと-1&#34;&gt;やりたいこと&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;docker で環境を分離
+&lt;ul&gt;
+&lt;li&gt;システムイメージ
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;system_img-docker.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h1 id=&#34;おまけログ&#34;&gt;（おまけ）ログ&lt;/h1&gt;
 &lt;h3 id=&#34;未ubuntu-に-docker-インストール&#34;&gt;（未）Ubuntu に docker インストール&lt;/h3&gt;
 &lt;ul&gt;
@@ -72,13 +85,50 @@
       <guid>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E7%B4%B9%E4%BB%8B/</guid>
       <description>
         
-          &lt;h1 id=&#34;概要&#34;&gt;概要&lt;/h1&gt;
+          &lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
 &lt;p&gt;大学でDeepLearningの応用系を研究しているので、公開されているSoTAモデルなどを動かそうとすることが多々あるのですが、&lt;strong&gt;予測結果を見る方法&lt;/strong&gt;はリポジトリによってバラバラで、そもそもない（自分で用意する必要がある）こともしばしば...。
 （「Jupyter notebook」や &lt;code&gt;predict.py&lt;/code&gt;、&lt;code&gt;evaluate.sh&lt;/code&gt; などが一般的？）&lt;/p&gt;
 &lt;p&gt;もちろん、Google Colab など Jupyter notebook を使えば早いのですが、どこか味気ないな... と思っていました。また、「半教師学習／Active Learning」や「対話、質問生成モデル」、「One-bit アノテーション」など、インタラクティブな学習にも興味があり、それらもいつかは試したいと思っていました。&lt;/p&gt;
-&lt;p&gt;私はめんどくさがりなので、↑ 全部まとめてできる環境作れないかな〜 と考えていたところ、「チャット（Slack など）で対話形式でやれば、全部できるのでは？」というアイディアを思いつきました（笑）&lt;/p&gt;
+&lt;p&gt;私はめんどくさがりなので、↑ 全部まとめてできる環境作れないかな〜 と考えていたところ、「チャット（Slack）で対話形式でやれば、全部できるのでは？」というアイディアを思いつきました。&lt;/p&gt;
 &lt;p&gt;そこで早速、実装してみることにしました。（思い立ったが吉日！）&lt;/p&gt;
-&lt;p&gt;チャット、bot 環境には、APIが豊富な Slack を使うことにしました。&lt;/p&gt;
+&lt;p&gt;と言っても完成がイメージできないと思うので、↓ に、完成イメージ（画像）を載せました。&lt;/p&gt;
+&lt;h3 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;イメージ（fashion mnist + 画像分類 の場合）
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;img src=&#34;fashion_mnist.png&#34; alt=&#34;fashion mnist で 画像分類&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;X&lt;/strong&gt;： （服などの）画像&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Q&lt;/strong&gt;： &amp;quot;fashion mnist&amp;quot;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を チャット（Slack）で bot に送ると、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;A&lt;/strong&gt;： &amp;quot;服の種類&amp;quot;（class, label）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;を返信する。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Q で「文章分類」や「固有表現抽出」、「OCR」、「Detection/Segmentation」...など「タスク名」を指定するイメージです。&lt;/p&gt;
+&lt;p&gt;つまり、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(X, Q) = (画像、&amp;quot;OCR&amp;quot;) なら、&lt;br&gt;
+　A = OCR結果（json or 文） を返す。&lt;/li&gt;
+&lt;li&gt;(X, Q) = (画像、&amp;quot;Detection&amp;quot;) なら、&lt;br&gt;
+　A = Detection結果（(bbox, class) の集合） を返す。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;ような bot を作るのが目標です。&lt;/p&gt;
+&lt;p&gt;内部実装としては、docker で環境を分離して、&lt;code&gt;$ docker exec &lt;/code&gt; で呼び出す形を目標に開発を進めています。（モデルを動かす環境（Python や tensorflow, pytorchなどのライブラリ）のバージョン衝突問題で、複数のモデルを動かせないことも多かったため）（未実装）&lt;/p&gt;
+&lt;p&gt;ちなみに最終目標は、Q を自然言語にして、対話を通して Q を推定するモデルを開発することです！
+（汎用AIのプロトタイプを目指して！）&lt;/p&gt;
+&lt;h3 id=&#34;github&#34;&gt;GitHub&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://github.com/MRyo-ie/slackbot_ML_model_tester&#34;&gt;GitHub&lt;/a&gt;  に公開しています。&lt;br&gt;
+※ まだ、Slack bot にモデルを接続しただけの段階です。&lt;br&gt;
+　近いうちに、モデルを docker で分離して、「素早く」「簡単に」接続できるような仕組みを作る予定です！&lt;/p&gt;
+&lt;h3 id=&#34;チャットbot-環境&#34;&gt;チャット、bot 環境&lt;/h3&gt;
+&lt;p&gt;APIが豊富な Slack を使うことにしました。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Slack は、
 &lt;ul&gt;
@@ -88,31 +138,8 @@
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;と言っても分かりにくいと思うので、↓ に、完成イメージ（画像）を載せました。&lt;/p&gt;
-&lt;h2 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;イメージ（fashion mnist + 画像分類 の場合）
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;img src=&#34;fashion_mnist.png&#34; alt=&#34;fashion mnist で 画像分類&#34;&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;X： （服などの）画像&lt;/li&gt;
-&lt;li&gt;Q： &amp;quot;fashion mnist&amp;quot;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;を チャット（Slack）で bot に送ると、&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A： &amp;quot;服の種類&amp;quot;（class, label）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;を返信する。&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;github&#34;&gt;GitHub&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;https://github.com/MRyo-ie/slackbot_ML_model_tester&#34;&gt;GitHub&lt;/a&gt;  に公開しています。&lt;br&gt;
-※ まだ、Slack bot にモデルを接続しただけの段階です。&lt;br&gt;
-　近いうちに、モデルを docker で分離して、「素早く」「簡単に」接続できるような仕組みを作る予定です！&lt;/p&gt;
-&lt;h3 id=&#34;マイルストーン&#34;&gt;マイルストーン&lt;/h3&gt;
+&lt;h2 id=&#34;マイルストーン&#34;&gt;マイルストーン&lt;/h2&gt;
+&lt;p&gt;今後実装していきたい機能など。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;↑のbotに、機械学習・Deep Learning モデルを&lt;/p&gt;
@@ -120,7 +147,7 @@
 &lt;li&gt;素早く&lt;/li&gt;
 &lt;li&gt;簡単に&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;接続できるシステムを作る。[ver 0.60]&lt;/p&gt;
+&lt;p&gt;接続できるシステムを作る。&lt;del&gt;[ver 0.60]&lt;/del&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;（未）Q に「評価関数」を追加する。&lt;/p&gt;
@@ -142,7 +169,7 @@
 &lt;p&gt;（未）対話を評価（アノテーション）する仕組みを組み込む。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;（未）半教師学習、Active Learning の仕組みを組み込む。&lt;/p&gt;
+&lt;p&gt;（未）半教師学習、Active Learning を組み込む。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;（未）（接続モデルが増えてきたら）汎用AI として作り直す。&lt;/p&gt;
@@ -150,7 +177,12 @@
 &lt;li&gt;「Q：この画像に写ってるのは？」→「A：コートです」&lt;/li&gt;
 &lt;li&gt;(X,Q) -&amp;gt; A  の形式に従う全てのタスクを、Qの指示通りにこなすことができるAI。
 &lt;ul&gt;
-&lt;li&gt;私にとっての、汎用AIのプロトタイプ&lt;/li&gt;
+&lt;li&gt;（自然言語処理）対話を通して Q を推定する。
+&lt;ul&gt;
+&lt;li&gt;Qを聞き出す。 空気を読む？&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;私にとっての、汎用AIのプロトタイプ&lt;/del&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;

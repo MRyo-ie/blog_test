@@ -17,13 +17,13 @@
 <meta property="og:locale" content="jp" />
 
 <meta property="og:type" content="article">
-<meta name="description" content="試し！！  リスト１ リスト２  詳細１ 詳細２    節2 節3 ">
+<meta name="description" content="マークダウン 記法  普通のリスト チェックリスト１ チェックリスト２  詳細１ 詳細２    画像  ![]()      数式 1{{ if or .Params.math .Site.Params.math }} 2{{ partial &#34;math.html&#34; . }} 3{{ end }} …">
 <meta name="twitter:card" content="summary" />
 <meta name="twitter:creator" content="@janedoe">
 <meta name="twitter:title" content="First_post" />
 <meta property="og:url" content="https://MRyo-ie.github.io/blog_test/post/first_post/" />
 <meta property="og:title" content="First_post" />
-<meta property="og:description" content="試し！！  リスト１ リスト２  詳細１ 詳細２    節2 節3 " />
+<meta property="og:description" content="マークダウン 記法  普通のリスト チェックリスト１ チェックリスト２  詳細１ 詳細２    画像  ![]()      数式 1{{ if or .Params.math .Site.Params.math }} 2{{ partial &#34;math.html&#34; . }} 3{{ end }} …" />
 <meta property="og:image" content="https://MRyo-ie.github.io/blog_test/images/thumbnail.png" />
 
 <link rel="apple-touch-icon" sizes="180x180" href="https://MRyo-ie.github.io/blog_test/icons/apple-touch-icon.png">
@@ -149,18 +149,42 @@
 </div>
 
     
-    <h1 id="試し">試し！！</h1>
+    
+    <h2></h2>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#画像">画像</a></li>
+    <li><a href="#数式">数式</a></li>
+  </ul>
+</nav>
+    <h1 id="マークダウン-記法">マークダウン 記法</h1>
 <ul>
-<li><input disabled="" type="checkbox"> リスト１</li>
-<li><input disabled="" type="checkbox"> リスト２
+<li>普通のリスト</li>
+<li><input disabled="" type="checkbox"> チェックリスト１</li>
+<li><input disabled="" type="checkbox"> チェックリスト２
 <ul>
 <li>詳細１</li>
 <li>詳細２</li>
 </ul>
 </li>
 </ul>
-<h2 id="節2">節2</h2>
-<h3 id="節3">節3</h3>
+<h2 id="画像">画像</h2>
+<ul>
+<li><code>![]()</code>
+<ul>
+<li><img src="logo.png" alt="first_post/logo.png"></li>
+</ul>
+</li>
+</ul>
+<h2 id="数式">数式</h2>
+<div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash"><span class="ln">1</span><span class="o">{{</span> <span class="k">if</span> or .Params.math .Site.Params.math <span class="o">}}</span>
+<span class="ln">2</span><span class="o">{{</span> partial <span class="s2">&#34;math.html&#34;</span> . <span class="o">}}</span>
+<span class="ln">3</span><span class="o">{{</span> end <span class="o">}}</span>
+</code></pre></div>
+<p>Block math:
+$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$</p>
 
 
   </article>
@@ -175,7 +199,7 @@
     <h2 class="mt-4"></h2>
     <ul class="flex-column">
       <li>
-        <a href="https://MRyo-ie.github.io/blog_test/post/survey_hugo_themes_blog/" class="nav-link" title="Survey_hugo_themes_blog">Survey_hugo_themes_blog</a>
+        <a href="https://MRyo-ie.github.io/blog_test/post/hugo-hello_world/survey_themes_blog/" class="nav-link" title="【メモ】hugo themes からデザインを要素分解してみた。">【メモ】hugo themes からデザインを要素分解してみた。</a>
       </li>
       <li>
         <a href="https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E5%AE%9F%E8%A3%85memo/" class="nav-link" title="Slackbot に 機械学習・Deep Learning モデルを接続してみた。 【実装編】">Slackbot に 機械学習・Deep Learning モデルを接続してみた。 【実装編】</a>

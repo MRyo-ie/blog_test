@@ -9,11 +9,11 @@
     <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
     <lastBuildDate>Wed, 31 Mar 2021 01:01:18 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Survey_hugo_themes_blog</title>
-      <link>https://MRyo-ie.github.io/blog_test/post/survey_hugo_themes_blog/</link>
+      <title>【メモ】hugo themes からデザインを要素分解してみた。</title>
+      <link>https://MRyo-ie.github.io/blog_test/post/hugo-hello_world/survey_themes_blog/</link>
       <pubDate>Wed, 31 Mar 2021 01:01:18 +0900</pubDate>
       
-      <guid>https://MRyo-ie.github.io/blog_test/post/survey_hugo_themes_blog/</guid>
+      <guid>https://MRyo-ie.github.io/blog_test/post/hugo-hello_world/survey_themes_blog/</guid>
       <description>
         
           &lt;h1 id=&#34;概要&#34;&gt;概要&lt;/h1&gt;
@@ -22,8 +22,9 @@
 &lt;li&gt;「自分好み」を分析するために、「hugo blog のデザイン」の要素を書き出してみることにした。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h1 id=&#34;分析&#34;&gt;分析&lt;/h1&gt;
-&lt;h2 id=&#34;hugo-themes---blog-の要素分解メモ&#34;&gt;hugo themes - blog の要素分解（メモ）&lt;/h2&gt;
+&lt;h2 id=&#34;要素分解メモ&#34;&gt;要素分解（メモ）&lt;/h2&gt;
 &lt;ul&gt;
+&lt;li&gt;hugo themes の blog 系のテンプレを30くらい見て、デザインで気になったところを列挙してみた。&lt;/li&gt;
 &lt;li&gt;表にまとめてみた。
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.google.com/spreadsheets/d/1CL_OapprPMT0qE8wEEQCf3Jd1APyd-Ja8taLBB2GbTU/edit#gid=0&#34;&gt;https://docs.google.com/spreadsheets/d/1CL_OapprPMT0qE8wEEQCf3Jd1APyd-Ja8taLBB2GbTU/edit#gid=0&lt;/a&gt;&lt;/li&gt;
@@ -32,14 +33,6 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;要素一覧&#34;&gt;要素一覧&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;色&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;主色&lt;/li&gt;
-&lt;li&gt;副色&lt;/li&gt;
-&lt;li&gt;総合（バランス）&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;UI&lt;/p&gt;
 &lt;ul&gt;
@@ -56,9 +49,27 @@
 &lt;li&gt;
 &lt;p&gt;UX&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;右カラム&lt;/li&gt;
+&lt;li&gt;右カラム
+&lt;ul&gt;
+&lt;li&gt;テーマによって、ある／ない、自己紹介、カテゴリ／タグ、最近の投稿 など様々。&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;URLリンク&lt;/li&gt;
 &lt;li&gt;脚注&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;色&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ベース（背景、余白）&lt;/li&gt;
+&lt;li&gt;メイン&lt;/li&gt;
+&lt;li&gt;総合（バランス）
+&lt;ul&gt;
+&lt;li&gt;主観的に。&lt;/li&gt;
+&lt;li&gt;アクセントカラーのレベルになると正直分からないので、その辺も含めて総合的に判断することにした。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -67,7 +78,7 @@
 &lt;li&gt;画像 埋め込み
 &lt;ul&gt;
 &lt;li&gt;できないテーマが意外と多い。&lt;/li&gt;
-&lt;li&gt;テーマによって、記法や保存場所が違うので、調べるのも一苦労だった...。&lt;/li&gt;
+&lt;li&gt;テーマによって、記法や保存場所が違う。（調べるのも一苦労だった...）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -75,18 +86,49 @@
 &lt;li&gt;
 &lt;p&gt;便利機能&lt;/p&gt;
 &lt;ul&gt;
+&lt;li&gt;数式（TeX）
+&lt;ul&gt;
+&lt;li&gt;これも、テーマによって記法や初期設定が違う...。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;li&gt;動画 埋め込み&lt;/li&gt;
 &lt;li&gt;チェックリスト&lt;/li&gt;
-&lt;li&gt;数式（TeX）&lt;/li&gt;
 &lt;li&gt;検索バー&lt;/li&gt;
 &lt;li&gt;ポートフォリオページ&lt;/li&gt;
 &lt;li&gt;Doc ページ&lt;/li&gt;
 &lt;li&gt;上に戻る ボタン（^）&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;自分の好みは&#34;&gt;自分の好みは...？&lt;/h2&gt;
+&lt;p&gt;30ページほどみた結果、以下を重視することが見えてきた。
+若干、 機能 &amp;gt; デザイン（UI） ？&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;画像埋め込みができるか
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;![]()&lt;/code&gt; が使えるか。&lt;/li&gt;
+&lt;li&gt;テーマによっては、デフォルトでその仕組みが用意されてない or 記法が特殊...。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;見やすさ
+&lt;ul&gt;
+&lt;li&gt;背景色と色が近すぎる項目（（特殊）文字、（コード／引用）ブロック...などの色）はないか&lt;/li&gt;
+&lt;li&gt;URLリンク がリンクっぽいか（押せそう？）&lt;/li&gt;
+&lt;li&gt;マークダウン
+&lt;ul&gt;
+&lt;li&gt;節のサイズ感&lt;/li&gt;
+&lt;li&gt;節（H1, H2） に下線が引かれるか&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;右カラム があるか&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;最終的に&#34;&gt;最終的に...&lt;/h1&gt;
-&lt;p&gt;30テーマほど見てみて、以下の３つまで絞れた。&lt;/p&gt;
+&lt;h2 id=&#34;ベースにするテーマ&#34;&gt;ベースにするテーマ&lt;/h2&gt;
+&lt;p&gt;以下の３つまで絞れた。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/hugo-clarity/&#34;&gt;Clarity&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/hugo-theme-fuji/&#34;&gt;Fuji&lt;/a&gt;&lt;/li&gt;
@@ -94,6 +136,38 @@
 &lt;/ol&gt;
 &lt;p&gt;けど、正直どれも 一長一短...。
 なので、それぞれの良いところを抽出、合体して、理想を目指していきたい。&lt;/p&gt;
+&lt;h2 id=&#34;凄かったテーマ&#34;&gt;凄かったテーマ&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://ublogger.netlify.app/&#34;&gt;uBlogger&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;フローチャート！？&lt;/li&gt;
+&lt;li&gt;音楽再生など、機能が凄かった。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/toha/&#34;&gt;Toha&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;デザイン全般&lt;/li&gt;
+&lt;li&gt;左カラム（エクスプローラー？）&lt;/li&gt;
+&lt;li&gt;Note&lt;/li&gt;
+&lt;li&gt;...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/theme/hugo-story/&#34;&gt;Hugo Story&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;細かいデザイン&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://themes.gohugo.io/airspace-hugo/&#34;&gt;Airspace Hugo&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;右カラム&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;残りのタスク&#34;&gt;残りのタスク&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;もう 30 くらいテンプレを漁ってみる。&lt;/li&gt;
+&lt;li&gt;hugo のオリジナルサイトで勉強してみる？&lt;/li&gt;
+&lt;/ul&gt;
 
         
       </description>

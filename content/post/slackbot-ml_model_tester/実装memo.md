@@ -37,8 +37,13 @@ tags:
   - 対話モデルを bot に接続した。
 - システムイメージ
   - ![プロトタイプ構成](system_img-simple.png)
+  - 左側が Slack
+  - 右側が bot サーバー
 
-## システム イメージ
+## やりたいこと
+- docker で環境を分離
+  - システムイメージ
+    - ![](system_img-docker.png)
 
 
 # （おまけ）ログ

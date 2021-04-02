@@ -16,18 +16,34 @@
       <guid>https://MRyo-ie.github.io/blog_test/post/first_post/</guid>
       <description>
         
-          &lt;h1 id=&#34;試し&#34;&gt;試し！！&lt;/h1&gt;
+          &lt;h1 id=&#34;マークダウン-記法&#34;&gt;マークダウン 記法&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; リスト１&lt;/li&gt;
-&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; リスト２
+&lt;li&gt;普通のリスト&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; チェックリスト１&lt;/li&gt;
+&lt;li&gt;&lt;input disabled=&#34;&#34; type=&#34;checkbox&#34;&gt; チェックリスト２
 &lt;ul&gt;
 &lt;li&gt;詳細１&lt;/li&gt;
 &lt;li&gt;詳細２&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;節2&#34;&gt;節2&lt;/h2&gt;
-&lt;h3 id=&#34;節3&#34;&gt;節3&lt;/h3&gt;
+&lt;h2 id=&#34;画像&#34;&gt;画像&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;![]()&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;img src=&#34;logo.png&#34; alt=&#34;first_post/logo.png&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;数式&#34;&gt;数式&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{{&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; or .Params.math .Site.Params.math &lt;span class=&#34;o&#34;&gt;}}&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{{&lt;/span&gt; partial &lt;span class=&#34;s2&#34;&gt;&amp;#34;math.html&amp;#34;&lt;/span&gt; . &lt;span class=&#34;o&#34;&gt;}}&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;{{&lt;/span&gt; end &lt;span class=&#34;o&#34;&gt;}}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Block math:
+$$
+\varphi = 1+\frac{1} {1+\frac{1} {1+\frac{1} {1+\cdots} } }
+$$&lt;/p&gt;
 
         
       </description>
