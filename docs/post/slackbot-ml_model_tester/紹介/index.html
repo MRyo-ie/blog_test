@@ -89,7 +89,7 @@
         </div>
       </div>
 <div class='follow'>
-  <a href="https://github.com/#">
+  <a href="https://github.com/MRyo-ie?tab=repositories">
     <svg class="icon">
   <use xlink:href="#github"></use>
 </svg>
@@ -120,11 +120,11 @@
   <span> · 
          <a href='https://MRyo-ie.github.io/blog_test/tags/slackbot' title="Slackbot" class="post_tag button button_translucent">Slackbot
          </a> · 
-         <a href='https://MRyo-ie.github.io/blog_test/tags/docker-compose' title="docker-compose" class="post_tag button button_translucent">docker-compose
-         </a> · 
          <a href='https://MRyo-ie.github.io/blog_test/tags/ai' title="AI" class="post_tag button button_translucent">AI
          </a> · 
-         <a href='https://MRyo-ie.github.io/blog_test/tags/deeplearning' title="DeepLearning" class="post_tag button button_translucent">DeepLearning
+         <a href='https://MRyo-ie.github.io/blog_test/tags/deep-learning' title="Deep Learning" class="post_tag button button_translucent">Deep Learning
+         </a> · 
+         <a href='https://MRyo-ie.github.io/blog_test/tags/docker' title="docker" class="post_tag button button_translucent">docker
          </a>
      </span>
   <span class="page_only"> · 
@@ -180,7 +180,7 @@
 <p>もちろん、Google Colab など Jupyter notebook を使えば早いのですが、どこか味気ないな... と思っていました。また、「半教師学習／Active Learning」や「対話、質問生成モデル」、「One-bit アノテーション」など、インタラクティブな学習にも興味があり、それらもいつかは試したいと思っていました。</p>
 <p>私はめんどくさがりなので、↑ 全部まとめてできる環境作れないかな〜 と考えていたところ、「チャット（Slack）で対話形式でやれば、全部できるのでは？」というアイディアを思いつきました。</p>
 <p>そこで早速、実装してみることにしました。（思い立ったが吉日！）</p>
-<p>と言っても完成がイメージできないと思うので、↓ に、完成イメージ（画像）を載せました。</p>
+<p>完成イメージ（画像）は ↓ な感じです。</p>
 <h3 id="やりたいこと">やりたいこと</h3>
 <ul>
 <li>イメージ（fashion mnist + 画像分類 の場合）
@@ -207,21 +207,23 @@
 　A = OCR結果（json or 文） を返す。</li>
 <li>(X, Q) = (画像、&quot;Detection&quot;) なら、<br>
 　A = Detection結果（(bbox, class) の集合） を返す。</li>
+<li>・・・</li>
 </ul>
 <p>ような bot を作るのが目標です。</p>
-<p>内部実装としては、docker で環境を分離して、<code>$ docker exec </code> で呼び出す形を目標に開発を進めています。（モデルを動かす環境（Python や tensorflow, pytorchなどのライブラリ）のバージョン衝突問題で、複数のモデルを動かせないことも多かったため）（未実装）</p>
-<p>ちなみに最終目標は、Q を自然言語にして、対話を通して Q を推定するモデルを開発することです！
-（汎用AIのプロトタイプを目指して！）</p>
+<p>内部実装は、docker で環境を分離して、<code>$ docker exec </code> で呼び出す形を目標に開発を進めています。（モデルを動かす環境（Python や tensorflow, pytorchなどのライブラリ）のバージョン衝突問題で、複数のモデルを動かせないことも多かったため）（未実装）</p>
+<p>（ちなみに）最終目標は、Q を自然言語にして、対話を通して Q を推定するモデルを開発すること！
+（汎用AIのプロトタイプを目指して）</p>
 <h3 id="github">GitHub</h3>
 <p><a href="https://github.com/MRyo-ie/slackbot_ML_model_tester">GitHub</a>  に公開しています。<br>
 ※ まだ、Slack bot にモデルを接続しただけの段階です。<br>
 　近いうちに、モデルを docker で分離して、「素早く」「簡単に」接続できるような仕組みを作る予定です！</p>
 <h3 id="チャットbot-環境">チャット、bot 環境</h3>
-<p>APIが豊富な Slack を使うことにしました。</p>
+<p>Slack を使うことにしました。</p>
 <ul>
 <li>Slack は、
 <ul>
 <li>「文」「画像」どちらも使える。</li>
+<li>APIが整備されている。</li>
 <li>bot の作成が簡単！<br>
 → 機械学習・Deeplearning モデルを試す場所として有用なのでは？？</li>
 </ul>
@@ -316,6 +318,9 @@
     <h2 class="mt-4"></h2>
     <ul class="flex-column">
       <li>
+        <a href="https://MRyo-ie.github.io/blog_test/post/hugo-tips/1_add-img/" class="nav-link" title="hugo のページに画像を挿入する方法">hugo のページに画像を挿入する方法</a>
+      </li>
+      <li>
         <a href="https://MRyo-ie.github.io/blog_test/post/hugo-hello_world/survey_themes_blog/" class="nav-link" title="【メモ】hugo themes からデザインを要素分解してみた。">【メモ】hugo themes からデザインを要素分解してみた。</a>
       </li>
       <li>
@@ -329,25 +334,36 @@
       </li>
     </ul>
     <div>
+      <h2 class="mt-4 taxonomy" id="categories-section"></h2>
+      <nav class="tags_nav">
+        <a href='https://MRyo-ie.github.io/blog_test/categories/ai/' class="post_tag button button_translucent" title="ai">
+          AI
+          <span class="button_tally">1</span>
+        </a>
+        
+        
+      </nav>
+    </div>
+    <div>
       <h2 class="mt-4 taxonomy" id="tags-section"></h2>
       <nav class="tags_nav">
+        <a href='https://MRyo-ie.github.io/blog_test/tags/hugo/' class="post_tag button button_translucent" title="hugo">
+          HUGO
+          <span class="button_tally">3</span>
+        </a>
+        
         <a href='https://MRyo-ie.github.io/blog_test/tags/ai/' class="post_tag button button_translucent" title="ai">
           AI
           <span class="button_tally">2</span>
         </a>
         
-        <a href='https://MRyo-ie.github.io/blog_test/tags/deeplearning/' class="post_tag button button_translucent" title="deeplearning">
-          DEEPLEARNING
+        <a href='https://MRyo-ie.github.io/blog_test/tags/deep-learning/' class="post_tag button button_translucent" title="deep-learning">
+          DEEP-LEARNING
           <span class="button_tally">2</span>
         </a>
         
-        <a href='https://MRyo-ie.github.io/blog_test/tags/docker-compose/' class="post_tag button button_translucent" title="docker-compose">
-          DOCKER-COMPOSE
-          <span class="button_tally">2</span>
-        </a>
-        
-        <a href='https://MRyo-ie.github.io/blog_test/tags/hugo/' class="post_tag button button_translucent" title="hugo">
-          HUGO
+        <a href='https://MRyo-ie.github.io/blog_test/tags/docker/' class="post_tag button button_translucent" title="docker">
+          DOCKER
           <span class="button_tally">2</span>
         </a>
         

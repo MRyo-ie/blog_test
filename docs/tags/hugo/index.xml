@@ -7,7 +7,125 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 31 Mar 2021 01:01:18 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Apr 2021 12:29:43 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>hugo のページに画像を挿入する方法</title>
+      <link>https://MRyo-ie.github.io/blog_test/post/hugo-tips/1_add-img/</link>
+      <pubDate>Thu, 01 Apr 2021 12:29:43 +0900</pubDate>
+      
+      <guid>https://MRyo-ie.github.io/blog_test/post/hugo-tips/1_add-img/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;概要&#34;&gt;概要&lt;/h2&gt;
+&lt;p&gt;Hugo で技術ブログを立ち上げてみたが、画像の挿入が想像以上に難しかった...。&lt;/p&gt;
+&lt;p&gt;具体的には、テーマによって以下のような違いがあった。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;記法
+&lt;ul&gt;
+&lt;li&gt;マークダウン&lt;/li&gt;
+&lt;li&gt;テーマが用意しているオリジナルの（複数種類）&lt;/li&gt;
+&lt;li&gt;そもそも画像が挿入できない&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;保存場所
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;post/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;static/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;resources/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;その上、関連する情報がググってもすぐには出てこなかったので、時間を使ってしまった...。&lt;/p&gt;
+&lt;p&gt;なので、メモも兼ねて、調べた手順などを軽くまとめてみることにした。&lt;/p&gt;
+&lt;h2 id=&#34;記法の違いについて&#34;&gt;記法の違いについて&lt;/h2&gt;
+&lt;h3 id=&#34;マークダウン記法-の場合&#34;&gt;マークダウン記法 の場合&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;![]()&lt;/code&gt; でできる。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;テーマごとのオリジナルの記法-の場合&#34;&gt;テーマごとのオリジナルの記法 の場合&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;テーマによって、記法が微妙に違う。&lt;/li&gt;
+&lt;li&gt;画像挿入ができない（マークダウン記法が使えず、オリジナルもない）テーマもある。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;各テーマの画像挿入方法&#34;&gt;各テーマの画像挿入方法&lt;/h2&gt;
+&lt;h3 id=&#34;調べ方&#34;&gt;調べ方&lt;/h3&gt;
+&lt;p&gt;以下の流れで調べるのが良さそう。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;各テーマの README.md を探してみる。
+&lt;ul&gt;
+&lt;li&gt;例）&lt;a href=&#34;https://themes.gohugo.io/hugo-clarity/#images&#34;&gt;Clarity&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Images&lt;/code&gt; 以下にある。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;例）&lt;a href=&#34;https://themes.gohugo.io/hugo-theme-fuji/#-image-zoom-and-lazyload-settings&#34;&gt;fuji&lt;/a&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Image zoom and lazyload settings&lt;/code&gt; の項にある。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;実際に挿入してみる。
+&lt;ul&gt;
+&lt;li&gt;大抵は、一発では表示されないです...。&lt;/li&gt;
+&lt;li&gt;画像のデフォルトの保存場所が、テーマによって違うため（？）&lt;/li&gt;
+&lt;li&gt;一般的には、&lt;code&gt;【リポジトリRoot】/static/&lt;/code&gt; か &lt;code&gt;【リポジトリRoot】/assets/&lt;/code&gt; の&lt;a href=&#34;https://mertbakir.gitlab.io/hugo/image-processing-in-hugo/&#34;&gt;ようです&lt;/a&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;画像が表示されない場合...
+&lt;ul&gt;
+&lt;li&gt;画像を「新しいタブで開く」して、パスを確認する。
+&lt;ul&gt;
+&lt;li&gt;例）
+&lt;ul&gt;
+&lt;li&gt;マークダウン → &lt;code&gt;![Alt text](20210327_155116.png)&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;パス（URL） → &lt;code&gt;http://localhost:1313/【Root】/post/hugo_init/〜.png&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;↑ の場合は、
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;【Root】/assets/post/hugo_init/〜.png&lt;/code&gt; または、&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;【Root】/static/post/hugo_init/〜.png&lt;/code&gt;
+に保存すると、表示されるかも。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;参考私の環境の場合&#34;&gt;（参考）私の環境の場合&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;テーマ： Clarity&lt;/li&gt;
+&lt;li&gt;画像の保存場所
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;【リポジトリRoot】/content/post/【記事名】/〜.png&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;（一応、&lt;code&gt;【リポジトリRoot】/static/〜/〜.png&lt;/code&gt; もできるっぽい？）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;主に使っている記法
+&lt;ul&gt;
+&lt;li&gt;マークダウン方式&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;![](〜/〜.png)&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- #### (theme) Fuji
+- 画像の保存場所： 
+- マークダウン上での書き方
+
+#### (theme) Fuji
+- 画像の保存場所： 
+- マークダウン上での書き方 --&gt;
+&lt;h3 id=&#34;参考&#34;&gt;参考&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mertbakir.gitlab.io/hugo/image-processing-in-hugo/&#34;&gt;image processing in hugo ep18&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>【メモ】hugo themes からデザインを要素分解してみた。</title>
       <link>https://MRyo-ie.github.io/blog_test/post/hugo-hello_world/survey_themes_blog/</link>
@@ -182,9 +300,11 @@
       <description>
         
           &lt;h1 id=&#34;はじめに３行説明&#34;&gt;はじめに（３行説明）&lt;/h1&gt;
-&lt;p&gt;これまで溜めてきた技術メモを、一度どこかにアウトプットしたいと思っていた。
-調査してみた結果、hugo + GitHub Pages が一番手っ取り早くて良さそう、という結論に至った。
-せっかくなので、このサイトが作られるまでの過程を、最初の投稿のネタにしてみることにした。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;これまで溜めてきた技術メモを、一度どこかにアウトプットしたいと思っていた。&lt;/li&gt;
+&lt;li&gt;調査してみた結果、hugo + GitHub Pages が良さそう、という結論に至った。&lt;/li&gt;
+&lt;li&gt;せっかくなので、このサイトが作られるまでの過程を、最初の投稿のネタにしてみることにした。&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h1 id=&#34;使用技術&#34;&gt;使用技術&lt;/h1&gt;
 &lt;h2 id=&#34;hugo-とは&#34;&gt;Hugo とは&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#%E5%8F%82%E8%80%83&#34;&gt;参考&lt;/a&gt; や 公式ページ をみた方が早いです。&lt;/p&gt;

@@ -91,7 +91,7 @@
 &lt;p&gt;もちろん、Google Colab など Jupyter notebook を使えば早いのですが、どこか味気ないな... と思っていました。また、「半教師学習／Active Learning」や「対話、質問生成モデル」、「One-bit アノテーション」など、インタラクティブな学習にも興味があり、それらもいつかは試したいと思っていました。&lt;/p&gt;
 &lt;p&gt;私はめんどくさがりなので、↑ 全部まとめてできる環境作れないかな〜 と考えていたところ、「チャット（Slack）で対話形式でやれば、全部できるのでは？」というアイディアを思いつきました。&lt;/p&gt;
 &lt;p&gt;そこで早速、実装してみることにしました。（思い立ったが吉日！）&lt;/p&gt;
-&lt;p&gt;と言っても完成がイメージできないと思うので、↓ に、完成イメージ（画像）を載せました。&lt;/p&gt;
+&lt;p&gt;完成イメージ（画像）は ↓ な感じです。&lt;/p&gt;
 &lt;h3 id=&#34;やりたいこと&#34;&gt;やりたいこと&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;イメージ（fashion mnist + 画像分類 の場合）
@@ -118,21 +118,23 @@
 　A = OCR結果（json or 文） を返す。&lt;/li&gt;
 &lt;li&gt;(X, Q) = (画像、&amp;quot;Detection&amp;quot;) なら、&lt;br&gt;
 　A = Detection結果（(bbox, class) の集合） を返す。&lt;/li&gt;
+&lt;li&gt;・・・&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;ような bot を作るのが目標です。&lt;/p&gt;
-&lt;p&gt;内部実装としては、docker で環境を分離して、&lt;code&gt;$ docker exec &lt;/code&gt; で呼び出す形を目標に開発を進めています。（モデルを動かす環境（Python や tensorflow, pytorchなどのライブラリ）のバージョン衝突問題で、複数のモデルを動かせないことも多かったため）（未実装）&lt;/p&gt;
-&lt;p&gt;ちなみに最終目標は、Q を自然言語にして、対話を通して Q を推定するモデルを開発することです！
-（汎用AIのプロトタイプを目指して！）&lt;/p&gt;
+&lt;p&gt;内部実装は、docker で環境を分離して、&lt;code&gt;$ docker exec &lt;/code&gt; で呼び出す形を目標に開発を進めています。（モデルを動かす環境（Python や tensorflow, pytorchなどのライブラリ）のバージョン衝突問題で、複数のモデルを動かせないことも多かったため）（未実装）&lt;/p&gt;
+&lt;p&gt;（ちなみに）最終目標は、Q を自然言語にして、対話を通して Q を推定するモデルを開発すること！
+（汎用AIのプロトタイプを目指して）&lt;/p&gt;
 &lt;h3 id=&#34;github&#34;&gt;GitHub&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&#34;https://github.com/MRyo-ie/slackbot_ML_model_tester&#34;&gt;GitHub&lt;/a&gt;  に公開しています。&lt;br&gt;
 ※ まだ、Slack bot にモデルを接続しただけの段階です。&lt;br&gt;
 　近いうちに、モデルを docker で分離して、「素早く」「簡単に」接続できるような仕組みを作る予定です！&lt;/p&gt;
 &lt;h3 id=&#34;チャットbot-環境&#34;&gt;チャット、bot 環境&lt;/h3&gt;
-&lt;p&gt;APIが豊富な Slack を使うことにしました。&lt;/p&gt;
+&lt;p&gt;Slack を使うことにしました。&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Slack は、
 &lt;ul&gt;
 &lt;li&gt;「文」「画像」どちらも使える。&lt;/li&gt;
+&lt;li&gt;APIが整備されている。&lt;/li&gt;
 &lt;li&gt;bot の作成が簡単！&lt;br&gt;
 → 機械学習・Deeplearning モデルを試す場所として有用なのでは？？&lt;/li&gt;
 &lt;/ul&gt;

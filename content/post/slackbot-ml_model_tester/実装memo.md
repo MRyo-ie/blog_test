@@ -3,11 +3,13 @@ title: "Slackbot に 機械学習・Deep Learning モデルを接続してみた
 date: 2021-03-27T17:01:45+09:00
 # draft: true
 toc: false
+categories:
+  - AI
 tags: 
   - Slackbot
-  - docker-compose
   - AI
-  - DeepLearning
+  - Deep Learning
+  - docker
 ---
 
 

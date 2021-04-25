@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AI on 技術ブログ（仮） | 趣味の研究開発メモ</title>
-    <link>https://MRyo-ie.github.io/blog_test/tags/ai/</link>
-    <description>Recent content in AI on 技術ブログ（仮） | 趣味の研究開発メモ</description>
+    <title>docker on 技術ブログ（仮） | 趣味の研究開発メモ</title>
+    <link>https://MRyo-ie.github.io/blog_test/tags/docker/</link>
+    <description>Recent content in docker on 技術ブログ（仮） | 趣味の研究開発メモ</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 27 Mar 2021 17:01:45 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Mar 2021 17:01:45 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Slackbot に 機械学習・Deep Learning モデルを接続してみた。 【実装編】</title>
       <link>https://MRyo-ie.github.io/blog_test/post/slackbot-ml_model_tester/%E5%AE%9F%E8%A3%85memo/</link>

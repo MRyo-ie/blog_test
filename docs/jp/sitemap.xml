@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://MRyo-ie.github.io/blog_test/</loc>
-    <lastmod>2021-03-31T01:01:18+09:00</lastmod>
+    <lastmod>2021-04-01T12:29:43+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -21,13 +21,16 @@
                 />
   </url><url>
     <loc>https://MRyo-ie.github.io/blog_test/tags/hugo/</loc>
-    <lastmod>2021-03-31T01:01:18+09:00</lastmod>
+    <lastmod>2021-04-01T12:29:43+09:00</lastmod>
+  </url><url>
+    <loc>https://MRyo-ie.github.io/blog_test/post/hugo-tips/1_add-img/</loc>
+    <lastmod>2021-04-01T12:29:43+09:00</lastmod>
   </url><url>
     <loc>https://MRyo-ie.github.io/blog_test/post/</loc>
-    <lastmod>2021-03-31T01:01:18+09:00</lastmod>
+    <lastmod>2021-04-01T12:29:43+09:00</lastmod>
   </url><url>
     <loc>https://MRyo-ie.github.io/blog_test/tags/</loc>
-    <lastmod>2021-03-31T01:01:18+09:00</lastmod>
+    <lastmod>2021-04-01T12:29:43+09:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -50,10 +53,31 @@
     <loc>https://MRyo-ie.github.io/blog_test/tags/ai/</loc>
     <lastmod>2021-03-27T17:01:45+09:00</lastmod>
   </url><url>
-    <loc>https://MRyo-ie.github.io/blog_test/tags/deeplearning/</loc>
+    <loc>https://MRyo-ie.github.io/blog_test/categories/ai/</loc>
     <lastmod>2021-03-27T17:01:45+09:00</lastmod>
   </url><url>
-    <loc>https://MRyo-ie.github.io/blog_test/tags/docker-compose/</loc>
+    <loc>https://MRyo-ie.github.io/blog_test/categories/</loc>
+    <lastmod>2021-03-27T17:01:45+09:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://MRyo-ie.github.io/blog_test/en/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="pt"
+                href="https://MRyo-ie.github.io/blog_test/pt/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="jp"
+                href="https://MRyo-ie.github.io/blog_test/categories/"
+                />
+  </url><url>
+    <loc>https://MRyo-ie.github.io/blog_test/tags/deep-learning/</loc>
+    <lastmod>2021-03-27T17:01:45+09:00</lastmod>
+  </url><url>
+    <loc>https://MRyo-ie.github.io/blog_test/tags/docker/</loc>
     <lastmod>2021-03-27T17:01:45+09:00</lastmod>
   </url><url>
     <loc>https://MRyo-ie.github.io/blog_test/tags/slackbot/</loc>
@@ -88,23 +112,6 @@
                 rel="alternate"
                 hreflang="jp"
                 href="https://MRyo-ie.github.io/blog_test/about/"
-                />
-  </url><url>
-    <loc>https://MRyo-ie.github.io/blog_test/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://MRyo-ie.github.io/blog_test/en/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="pt"
-                href="https://MRyo-ie.github.io/blog_test/pt/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="jp"
-                href="https://MRyo-ie.github.io/blog_test/categories/"
                 />
   </url><url>
     <loc>https://MRyo-ie.github.io/blog_test/series/</loc>
