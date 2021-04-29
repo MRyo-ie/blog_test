@@ -7,7 +7,173 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <copyright>Copyright © 2008–2018, Steve Francia and the Hugo Authors; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 01 Apr 2021 12:29:43 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Apr 2021 11:10:57 +0900</lastBuildDate><atom:link href="https://MRyo-ie.github.io/blog_test/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>BERTを最小構成で動かしてみた 1　〜 日本語BERT でMask予測 〜</title>
+      <link>https://MRyo-ie.github.io/blog_test/post/bert/1_%E5%8B%95%E3%81%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</link>
+      <pubDate>Fri, 16 Apr 2021 11:10:57 +0900</pubDate>
+      
+      <guid>https://MRyo-ie.github.io/blog_test/post/bert/1_%E5%8B%95%E3%81%8B%E3%81%97%E3%81%A6%E3%81%BF%E3%81%9F/</guid>
+      <description>
+        
+          &lt;h2 id=&#34;はじめに&#34;&gt;はじめに&lt;/h2&gt;
+&lt;p&gt;今更ですが、BERT（&lt;a href=&#34;https://github.com/huggingface/transformers&#34;&gt;huggingface/transformers&lt;/a&gt;）を動かしてみたので、その備忘録です。&lt;br&gt;
+全5回シリーズを投稿する予定で、本稿はその第１回目になります。&lt;/p&gt;
+&lt;p&gt;なお、シリーズは以下のようになる予定です。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;BERTを最小構成で動かしてみた 1　〜 日本語BERT でMask予測 〜  ← 今ここ&lt;/li&gt;
+&lt;li&gt;BERTを最小構成で動かしてみた 2　〜 日本語BERT で文章分類 fine-tuning 〜&lt;/li&gt;
+&lt;li&gt;BERTをカスタマイズしてみた 1　〜 日本語BERT,T5 でマルチタスクfine-tuning 〜&lt;/li&gt;
+&lt;li&gt;BERTをカスタマイズしてみた 2　〜 huggingface/transformers を色々試して見る 〜&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;環境&#34;&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Googloe Colab&lt;/li&gt;
+&lt;li&gt;（おまけ）jetson AGX Xavier（失敗？）&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;やったこと&#34;&gt;やったこと&lt;/h2&gt;
+&lt;p&gt;東北大、京大 のモデルで、Mask 予測を動かしてみました。&lt;/p&gt;
+&lt;p&gt;以下、最小コードです。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;import torch
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;from transformers import AutoTokenizer, AutoModelForMaskedLM
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;# トークナイザーとモデルの準備
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;tokenizer = AutoTokenizer.from_pretrained(&amp;#39;cl-tohoku/bert-base-japanese-whole-word-masking&amp;#39;)
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;model = AutoModelForMaskedLM.from_pretrained(&amp;#39;cl-tohoku/bert-base-japanese-whole-word-masking&amp;#39;)
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;def predict(input_ids):
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    # テキストをテンソルに変換
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    input_ids = tokenizer.encode(text, return_tensors=&amp;#39;pt&amp;#39;)
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;    masked_index = torch.where(input_ids == tokenizer.mask_token_id)[1].tolist()[0]
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;    # 推論
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;    result = model(input_ids)
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;    pred_ids = result[0][:, masked_index].topk(5).indices.tolist()[0]
+&lt;span class=&#34;ln&#34;&gt;16&lt;/span&gt;    for pred_id in pred_ids:
+&lt;span class=&#34;ln&#34;&gt;17&lt;/span&gt;        output_ids = input_ids.tolist()[0]
+&lt;span class=&#34;ln&#34;&gt;18&lt;/span&gt;        output_ids[masked_index] = pred_id
+&lt;span class=&#34;ln&#34;&gt;19&lt;/span&gt;        print(&amp;#39;[Info] pred_id : &amp;#39;, pred_id,  &amp;#39;,\n    &amp;#39;, output_ids)
+&lt;span class=&#34;ln&#34;&gt;20&lt;/span&gt;        print(&amp;#39;  &amp;#39;, tokenizer.decode(output_ids))
+&lt;span class=&#34;ln&#34;&gt;21&lt;/span&gt;
+&lt;span class=&#34;ln&#34;&gt;22&lt;/span&gt;# テキスト
+&lt;span class=&#34;ln&#34;&gt;23&lt;/span&gt;text = f&amp;#39;吾輩は{tokenizer.mask_token}である。名前はまだない。&amp;#39;
+&lt;span class=&#34;ln&#34;&gt;24&lt;/span&gt;predict(text)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/huggingface/transformers&#34;&gt;huggingface/transformers&lt;/a&gt; が色々ラップしてくれているので、これだけでOK。すごい。&lt;/p&gt;
+&lt;p&gt;以下、細かいコードの説明です。&lt;/p&gt;
+&lt;h3 id=&#34;tokenizer-model-の読み込み&#34;&gt;Tokenizer, Model の読み込み。&lt;/h3&gt;
+&lt;p&gt;huggingface/transformers では、docker-hub のように、事前学習済みモデルを公開できる場所があり、そこに日本語学習済みモデルもいくつか上がっています。（調査中）&lt;/p&gt;
+&lt;p&gt;その中でも有名なものとして、&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;東北大学のモデル
+&lt;ul&gt;
+&lt;li&gt;cl-tohoku/bert-base-japanese-v2&lt;/li&gt;
+&lt;li&gt;（旧ver）cl-tohoku/bert-base-japanese-whole-word-masking&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;京都大学のモデル
+&lt;ul&gt;
+&lt;li&gt;Japanese_L-12_H-768_A-12_E-30_BPE/bert_config.json&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;があるので、今回は、それらを実際に試してみました。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;# トークナイザーとモデルの準備
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;tokenizer = AutoTokenizer.from_pretrained(&amp;#39;cl-tohoku/bert-base-japanese-whole-word-masking&amp;#39;)
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;model = AutoModelForMaskedLM.from_pretrained(&amp;#39;cl-tohoku/bert-base-japanese-whole-word-masking&amp;#39;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;tokenizer-model-の読み込み-1&#34;&gt;Tokenizer, Model の読み込み。&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;def predict(input_ids):
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;    # テキストをテンソルに変換
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;    input_ids = tokenizer.encode(text, return_tensors=&amp;#39;pt&amp;#39;)
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;    masked_index = torch.where(input_ids == tokenizer.mask_token_id)[1].tolist()[0]
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;    
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;    # 推論
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;    result = model(input_ids)
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    pred_ids = result[0][:, masked_index].topk(5).indices.tolist()[0]
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;    for pred_id in pred_ids:
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;        output_ids = input_ids.tolist()[0]
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;        output_ids[masked_index] = pred_id
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;        print(&amp;#39;[Info] pred_id : &amp;#39;, pred_id,  &amp;#39;,\n    &amp;#39;, output_ids)
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;        print(&amp;#39;  &amp;#39;, tokenizer.decode(output_ids))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;結果&#34;&gt;結果&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;text = f&amp;#39;吾輩は{tokenizer.mask_token}である。名前はまだない。&amp;#39;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;predict(text)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;実行結果は、↓ のようになりました。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;[Info] pred_id :  6040 ,
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;     [2, 7184, 30046, 9, 6040, 12, 31, 8, 1381, 9, 2941, 80, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;   [CLS] 吾輩 は 猫 で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;[Info] pred_id :  2928 ,
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;     [2, 7184, 30046, 9, 2928, 12, 31, 8, 1381, 9, 2941, 80, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;   [CLS] 吾輩 は 犬 で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;[Info] pred_id :  1410 ,
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;     [2, 7184, 30046, 9, 1410, 12, 31, 8, 1381, 9, 2941, 80, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;   [CLS] 吾輩 は 人間 で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;[Info] pred_id :  10082 ,
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;     [2, 7184, 30046, 9, 10082, 12, 31, 8, 1381, 9, 2941, 80, 8, 3]
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;   [CLS] 吾輩 は 狼 で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;[Info] pred_id :  1325 ,
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;     [2, 7184, 30046, 9, 1325, 12, 31, 8, 1381, 9, 2941, 80, 8, 3]
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;   [CLS] 吾輩 は 私 で ある 。 名前 は まだ ない 。 [SEP]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;text = f&amp;#39;テレビで{tokenizer.mask_token}の試合を見る。&amp;#39;
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;predict(text)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;[Info] pred_id :  1301 ,
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;     [2, 571, 12, 1301, 5, 608, 11, 2867, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;   [CLS] テレビ で サッカー の 試合 を 見る 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;[Info] pred_id :  5653 ,
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;     [2, 571, 12, 5653, 5, 608, 11, 2867, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;   [CLS] テレビ で バスケットボール の 試合 を 見る 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;[Info] pred_id :  15235 ,
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;     [2, 571, 12, 15235, 5, 608, 11, 2867, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;   [CLS] テレビ で 阪神タイガース の 試合 を 見る 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;[Info] pred_id :  542 ,
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;     [2, 571, 12, 542, 5, 608, 11, 2867, 8, 3]
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;   [CLS] テレビ で 代表 の 試合 を 見る 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt;13&lt;/span&gt;[Info] pred_id :  91 ,
+&lt;span class=&#34;ln&#34;&gt;14&lt;/span&gt;     [2, 571, 12, 91, 5, 608, 11, 2867, 8, 3]
+&lt;span class=&#34;ln&#34;&gt;15&lt;/span&gt;   [CLS] テレビ で 日本 の 試合 を 見る 。 [SEP]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;あっさり出来てしまって、結構びっくりしました。&lt;/p&gt;
+&lt;h2 id=&#34;おまけ&#34;&gt;おまけ&lt;/h2&gt;
+&lt;h3 id=&#34;jetson-agx-xavier-で動かしてみた&#34;&gt;Jetson AGX Xavier で動かしてみた&lt;/h3&gt;
+&lt;p&gt;予測結果&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt;1&lt;/span&gt;[CLS] 吾輩 は し で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt;2&lt;/span&gt;[CLS] 吾輩 は 一 で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt;3&lt;/span&gt;[CLS] 吾輩 は と で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt;4&lt;/span&gt;[CLS] 吾輩 は 数 で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt;5&lt;/span&gt;[CLS] 吾輩 は 生まれ で ある 。 名前 は まだ ない 。 [SEP]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;なぜかうまくいかなかったです...。&lt;/p&gt;
+&lt;p&gt;一応、デバッグのために id を表示してみたけど...&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;[Info] pred_id :  15 ,
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;     [2, 7184, 30046, 9, 15, 12, 31, 8, 1381, 9, 2941, 80, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;   [CLS] 吾輩 は し で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;[Info] pred_id :  52 ,
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;     [2, 7184, 30046, 9, 52, 12, 31, 8, 1381, 9, 2941, 80, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;   [CLS] 吾輩 は 一 で ある 。 名前 は まだ ない 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;[Info] pred_id :  13 ,
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    ・・・
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;[Info] pred_id :  276 ,
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    ・・・
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;[Info] pred_id :  1115 ,
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    ・・・
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;ln&#34;&gt; 1&lt;/span&gt;[Info] pred_id :  15 ,
+&lt;span class=&#34;ln&#34;&gt; 2&lt;/span&gt;     [2, 571, 12, 15, 5, 608, 11, 2867, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 3&lt;/span&gt;   [CLS] テレビ で し の 試合 を 見る 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt; 4&lt;/span&gt;[Info] pred_id :  52 ,
+&lt;span class=&#34;ln&#34;&gt; 5&lt;/span&gt;     [2, 571, 12, 52, 5, 608, 11, 2867, 8, 3]
+&lt;span class=&#34;ln&#34;&gt; 6&lt;/span&gt;   [CLS] テレビ で 一 の 試合 を 見る 。 [SEP]
+&lt;span class=&#34;ln&#34;&gt; 7&lt;/span&gt;[Info] pred_id :  13 ,
+&lt;span class=&#34;ln&#34;&gt; 8&lt;/span&gt;    ・・・
+&lt;span class=&#34;ln&#34;&gt; 9&lt;/span&gt;[Info] pred_id :  1115 ,
+&lt;span class=&#34;ln&#34;&gt;10&lt;/span&gt;    ・・・
+&lt;span class=&#34;ln&#34;&gt;11&lt;/span&gt;[Info] pred_id :  281 ,
+&lt;span class=&#34;ln&#34;&gt;12&lt;/span&gt;    ・・・
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Google Colab のときと id が違うので、Tokenizer 側ではなく、
+Model 側に問題があるだろうとの結論に至りました。
+が、結局原因は分からず...。&lt;/p&gt;
+&lt;p&gt;（これからカスタマイズしていくうちに、原因が分かると良いな...）&lt;/p&gt;
+
+        
+      </description>
+    </item>
+    
     <item>
       <title>hugo のページに画像を挿入する方法</title>
       <link>https://MRyo-ie.github.io/blog_test/post/hugo-tips/1_add-img/</link>
